@@ -1,0 +1,285 @@
+:root{
+    --main-color: #365673;
+    --second-color: #426A8C;
+    --font-color: #B8C6D9;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0 0;
+    box-sizing: border-box;
+    
+}
+
+header{
+    background-color: var(--main-color);
+    height: 15vh;
+}
+
+#main{
+    padding: 50px 300px;
+    min-width: 1000px;
+    background-color: var(--main-color);
+    color: var(--font-color);
+}
+
+#datos-personales, #experiencia{
+    margin-bottom: 20vh;
+}
+
+#datos-personales{
+    
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    
+}
+
+#name h1{
+    margin-top: 0;
+    font-size: 50px;
+    
+}
+
+#dt-academicos p{
+    margin: 0;
+    font-size: 25px;
+}
+
+#identificaciones{
+    border-color: black;
+    aspect-ratio: 1;
+     
+}
+#foto-perfil{
+    
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+#foto-perfil img{
+    max-height: 60vh;
+
+}
+
+
+#experiencia p{
+    text-wrap: pretty;
+    font-size: 30px;
+}
+
+#habilidades{
+    background-color:var(--second-color);
+    display: flex;
+    border-radius: 30px;
+    
+    justify-content: space-between;
+
+}
+
+#habilidades h2{
+    
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    color: white;
+    
+}
+
+
+
+#lenguajes{
+
+    align-items: center;
+    max-width: 40vw;
+    min-width: 30vw;
+    padding: 10px 10px;
+    
+}
+
+#manejo-de-idiomas{
+    
+    align-items: center;
+    max-width: 40vw;
+    min-width: 30vw;
+    padding: 10px 10px;
+
+}
+
+#lenguajes-img, #idiomas{
+   
+    
+    max-width: 30vw;
+   
+}
+
+#lista-lenguajes{
+    display: flex;
+    flex-direction: column;   
+    padding: 0 8vw;
+    flex-wrap: wrap;
+}
+
+.logo{
+    aspect-ratio: 1;
+    max-width: 10vh;
+    overflow: clip; 
+
+    
+}
+
+
+
+.idioma{
+    
+    max-width: 10vh;
+    overflow: clip; 
+    
+}
+
+
+
+li{
+    justify-content: space-between;
+    color: black;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+
+}
+#lenguajes-img li,ul{
+
+    margin: 0;
+    padding: 0;
+    margin-bottom: 25px;
+    list-style: none;
+}
+
+.lenguaje{
+    display: flex;
+}   
+
+
+.progress {
+    background: rgba(255,255,255,0.1);
+    justify-content: flex-start;
+    border-radius: 100px;
+    align-items: center;
+    position: relative;
+    padding: 0 5px;
+    display: flex;
+    height: 20px;
+    width: 300px;
+  }
+  
+  #proggres-html {
+    animation: html 2s normal forwards;
+    box-shadow: 0 5px 40px 1px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 20px;
+    width: 0;
+  }
+
+
+  
+   @keyframes html{
+    
+    0% { width: 0; 
+    }
+    100% { width: 80%; 
+    }
+  }
+
+  #proggres-css {
+    animation: css 2s normal forwards;
+    box-shadow: 0 5px 40px 1px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 20px;
+    width: 0;
+  }
+
+
+  
+   @keyframes css{
+    
+    0% { width: 0; 
+    }
+    100% { width: 60%; 
+    }
+  }
+
+
+  #proggres-java{
+    animation: java 2s normal forwards;
+    box-shadow: 0 5px 40px 1px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 20px;
+    width: 0;
+  }
+
+
+  
+   @keyframes java{
+    
+    0% { width: 0; 
+    }
+    100% { width: 70%; 
+    }
+  }
+
+
+  #proggres-js {
+    animation: js 2s normal forwards;
+    box-shadow: 0 5px 40px 1px #fff;
+    border-radius: 100px;
+    background: #fff;
+    height: 20px;
+    width: 0;
+  }
+
+
+  
+   @keyframes js{
+    
+    0% { width: 0; 
+    }
+    100% { width: 30%; 
+    }
+  }
+
+
+
+
+
+#idiomas li,ul{
+    
+    margin: 0;
+    padding: 0;
+    margin-bottom: 25px;
+    list-style: none;
+    
+    
+
+}
+
+#idiomas{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+footer{
+    background-color: var(--main-color);
+    height: 15vh;
+}
