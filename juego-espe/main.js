@@ -113,12 +113,12 @@ function comprobarColision(atacante, objetivo) {
     return anchoArma >= objetivoPosicion && posicionArma <= anchoObjetivo;
 }
 
-function moverJugador(character,s,color){
+function moverJugador(character,s,color,enemy){
     character.posX += character.velocity
     character.weapon.positions.x += character.velocity
     
 
-    if (character.posX < 0){
+    if (character.posX < 0 && character.posX<enemy.posX){
         character.velocity = 0
         character.posX = 0
         character.weapon.positions.x = character.posX + 40
@@ -163,8 +163,8 @@ function update() {
 
    
     dibujar();
-    moverJugador(jugador,1,"blue")
-    moverJugador(enemigo,-1,"black")
+    moverJugador(jugador,1,"blue",enemigo)
+    moverJugador(enemigo,-1,"black",jugador)
     let posicionArmaEnemiga = enemigo.posX-enemigo.weapon.dimentions.len;
     let posicionArmaJugador = jugador.weapon.positions.x + jugador.weapon.dimentions.len
     if(posicionArmaEnemiga < jugador.posX+20) {
