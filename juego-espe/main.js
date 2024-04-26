@@ -34,6 +34,12 @@ class Personaje {
             break;
        }       
     }
+    morir(personaje){
+        if (this.life <= 0){
+            alert("Murio "+personaje)
+        }
+    }
+
     update() {
         
         this.attack(15)
@@ -51,7 +57,7 @@ let ultimoDisparoEnemigo = Date.now();
 document.addEventListener("keydown", event => {
     const tiempoActual = Date.now() 
     if(event.key == "e") if(tiempoActual - ultimoDisparoPersonaje > TIEMPO_ESPERA){
-
+        
         jugador.isAttacking = true;
         ultimoDisparoPersonaje = Date.now();
     }
@@ -67,7 +73,7 @@ document.addEventListener("keydown", event => {
     const tiempoActual = Date.now()
     if(event.key == "m") if(tiempoActual-ultimoDisparoEnemigo > TIEMPO_ESPERA){
         enemigo.isAttacking = true    
-        ultimoDisparoEnemigo = Date.now()
+        ultimoDisparoEnemigo = Date.now();
     }
 })
 
@@ -107,12 +113,12 @@ function comprobarColision(atacante, objetivo) {
     return anchoArma >= objetivoPosicion && posicionArma <= anchoObjetivo;
 }
 
-function moverJugador(character,s,color){
+function moverJugador(character,s,color,enemy){
     character.posX += character.velocity
     character.weapon.positions.x += character.velocity
     
 
-    if (character.posX < 0){
+    if (character.posX < 0 && character.posX<enemy.posX){
         character.velocity = 0
         character.posX = 0
         character.weapon.positions.x = character.posX + 40
@@ -131,12 +137,7 @@ function moverJugador(character,s,color){
     ctx.fillRect(character.weapon.positions.x,character.weapon.positions.y,(s)*(character.weapon.dimentions.len),character.weapon.dimentions.height);
 }
 
-function reset(){
-    jugador = new Personaje("Jugador", 100, 1,100,1);
-    ultimoDisparoPersonaje = Date.now();
-    enemigo = new Personaje("Enemigo", 100, 1,1000,-1);
-    ultimoDisparoEnemigo = Date.now();
-}
+
 
 function dibujar() {
     canvas.width = canvas.width;
@@ -148,13 +149,22 @@ function dibujar() {
 
 function update() {
 
-    if(enemigo.health<0){
-        location.reload()        
+    if(enemigo.health <= 0){
+        alert("Gano el jugador 1")
+        enemigo.health = 100
+        window.location.reload()
     }
 
+    if(jugador.health <=0){
+        alert("Gano el jugador 2")
+        jugador.health = 100
+        window.location.reload()
+    }
+
+   
     dibujar();
-    moverJugador(jugador,1,"blue")
-    moverJugador(enemigo,-1,"black")
+    moverJugador(jugador,1,"blue",enemigo)
+    moverJugador(enemigo,-1,"black",jugador)
     let posicionArmaEnemiga = enemigo.posX-enemigo.weapon.dimentions.len;
     let posicionArmaJugador = jugador.weapon.positions.x + jugador.weapon.dimentions.len
     if(posicionArmaEnemiga < jugador.posX+20) {
