@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canva");
 ctx = canvas.getContext('2d')
-TIEMPO_ESPERA = 700
+TIEMPO_ESPERA = 600
 
 class Personaje {
     constructor(name, health, damage, posX,sentido) {
