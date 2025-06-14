@@ -76,7 +76,7 @@ document.addEventListener("keydown", event => {
         ultimoDisparoEnemigo = Date.now();
     }
 })
-
+ 
 document.addEventListener("keyup", event => {
     if(event.key == "m") enemigo.isAttacking = false  
 })
